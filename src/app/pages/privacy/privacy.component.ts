@@ -41,7 +41,7 @@ export class PrivacyComponent {
         },
         {
             title: '8. Liên hệ',
-            content: 'Nếu bạn có bất kỳ câu hỏi nào về chính sách bảo mật này, vui lòng liên hệ với chúng tôi qua email: support@ant.vn hoặc số điện thoại: (84) 123-456-789. Chúng tôi sẽ phản hồi trong vòng 24-48 giờ làm việc.'
+            content: 'Nếu bạn có bất kỳ câu hỏi nào về chính sách bảo mật này, vui lòng liên hệ với chúng tôi qua email: supports.antjsc@gmail.com hoặc số điện thoại: (84) 88 6929 185. Chúng tôi sẽ phản hồi trong vòng 24-48 giờ làm việc.'
         }
     ];
 

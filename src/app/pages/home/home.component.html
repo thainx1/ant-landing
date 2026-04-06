@@ -1,111 +1,131 @@
 <div class="home-container">
-    <div class="hero-section">
-        <div class="home-content w-full">
-            <!-- @if (banner()?.imageUrlCallback) {
-                <img [src]="banner()?.imageUrlCallback" class="image-section" alt="">
-            } @else { -->
-            <div class="grid grid-nogutter">
-                <div class="col-12 md:col-6 content-left">
-                    <div class="flex justify-content-start">
-                        <img src="/images/logo_text.svg" class="image" alt="">
-                    </div>
-                    <span class="title font-bold home-text-color">Người bạn đồng hành giúp bé tự tin học tiếng Anh</span>
-                    <span class="content">Đen Đen là robot đồng hành giúp bé học tiếng Anh qua tương tác hằng ngày, hình thành thói quen và phát triển nền tảng toàn diện.</span>
-                    <div class="flex align-items-center justify-content-start gap-3">
-                        <a [routerLink]="['/contact']" class="flex-1 btn-extra no-underline">Đăng ký tư vấn</a>
-                        <a [routerLink]="['/contact']" class="btn-support no-underline">Liên hệ</a>
-                    </div>
-                </div>
-                <div class="col-12 md:col-6 content-right">
-                    <img src="/images/home/banner_logo.svg" class="image-section" alt="">
+    <!-- ═══ HERO ═══ -->
+    <section class="hero-section">
+        <div class="hero-inner">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    Tối ưu hiệu suất bán hàng BĐS với
+                    <span class="highlight">ANT</span>
+                </h1>
+                <p class="hero-desc">
+                    Cá nhân hóa trang bán hàng, quản lý quỹ căn và đặt lịch thông minh —
+                    tất cả trong cùng 1 hệ thống dành riêng cho đội nhóm sale bất động sản.
+                </p>
+                <div class="hero-actions">
+                    <a [routerLink]="['/contact']" class="btn-primary no-underline">Đăng ký dùng thử</a>
+                    <a [routerLink]="['/contact']" class="btn-outline no-underline">Nhận tư vấn</a>
                 </div>
             </div>
-            <!-- } -->
+            <div class="hero-visual">
+                <div class="hero-float-images">
+                    <img src="images/home/image_1.jpg" class="float-img float-img-top" alt="ANT Platform"/>
+                    <img src="images/home/image_2.jpg" class="float-img float-img-bottom" alt="ANT Platform"/>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="secondary-section">
-        <div class="home-content">
-            <span class="title font-bold text-center home-text-color">Khi học cùng Đen Đen, bé sẽ tiến bộ như thế nào?</span>
-            <div class="grid grid-nogutter gap-5" [ngClass]="(bp.isMobile$ | async) ? 'w-screen' : ''">
-                @if(!(bp.isMobile$ | async)){
-                    @for (feature of features; track $index) {
-                    <div class="col-4 box-card">
-                        <img [src]="feature.image" class="box-card-image" alt="">
-                        <span class="box-card-title home-text-color">{{ feature.title }}</span>
-                        <span class="box-card-content">
-                            {{ feature.description }}
-                        </span>
+    </section>
+
+    <!-- ═══ SOCIAL PROOF ═══ -->
+    <section class="proof-section">
+        <div class="proof-inner">
+            <div class="proof-stats">
+                @for (stat of proofStats; track stat.label) {
+                    <div class="proof-item">
+                        <span class="proof-number">{{ stat.number }}</span>
+                        <span class="proof-label">{{ stat.label }}</span>
                     </div>
-                    }
-                }@else {
-                    <div class="col-12">
-                        <p-carousel allowVerticalScrollOnCarousel [value]="features" [numVisible]="3" [numScroll]="1" [responsiveOptions]="bp.responsiveOptions"
-                            [showNavigators]="false"
-                            [circular]="false" [autoplayInterval]="3000">
-                            <ng-template pTemplate="item" let-feature>
-                                <div class="px-4">
-                                    <div class="box-card">
-                                        <img [src]="feature.image" class="box-card-image" alt="">
-                                        <span class="box-card-title">{{ feature.title }}</span>
-                                        <span class="box-card-content">
-                                            {{ feature.description }}
-                                        </span>
-                                    </div>
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ FEATURES BY ROLE ═══ -->
+    <section class="features-section">
+        <div class="features-inner">
+            <h2 class="section-title">
+                Hơn cả một phần mềm quản lý, ANT mang đến
+            </h2>
+            <div class="tab-bar">
+                @for (tab of tabs; track tab.key; let i = $index) {
+                    <button class="tab-btn" [class.active]="activeTab() === tab.key"
+                        (click)="selectTab(tab.key, i)">
+                        {{ tab.label }}
+                    </button>
+                }
+            </div>
+            <div class="tab-content">
+                <div class="tab-content-inner"
+                     [class.slide-from-right]="slideDirection() === 'right' && isAnimating()"
+                     [class.slide-from-left]="slideDirection() === 'left' && isAnimating()">
+                    <div class="tab-highlights">
+                        @for (item of currentTabData().highlights; track item) {
+                            <div class="highlight-item">
+                                <i class="pi pi-check-circle"></i>
+                                <span>{{ item }}</span>
+                            </div>
+                        }
+                    </div>
+                    <div class="tab-features-grid">
+                        @for (feat of currentTabData().features; track feat.title) {
+                            <div class="feat-card">
+                                <div class="feat-icon">
+                                    <i class="pi" [ngClass]="feat.icon"></i>
                                 </div>
-                            </ng-template>
-                        </p-carousel>
+                                <h4 class="feat-title">{{ feat.title }}</h4>
+                                <p class="feat-desc">{{ feat.description }}</p>
+                            </div>
+                        }
+                    </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ PRICING CTA ═══ -->
+    <section class="pricing-section">
+        <div class="pricing-inner">
+            <div class="pricing-card">
+                <div class="pricing-info">
+                    <h2 class="pricing-title">Đăng ký dùng thử và chọn gói phù hợp</h2>
+                    <div class="pricing-price">
+                        chỉ từ <span class="price-amount">49.000</span> VNĐ/người/tháng
+                    </div>
+                    <ul class="pricing-perks">
+                        <li><i class="pi pi-check"></i> Tích hợp mọi tính năng quản lý quỹ căn & đặt lịch</li>
+                        <li><i class="pi pi-check"></i> Giao diện đơn giản, dễ dùng — làm quen trong 5 phút</li>
+                        <li><i class="pi pi-check"></i> Dữ liệu minh bạch, phân loại khách tự động</li>
+                        <li><i class="pi pi-check"></i> Phù hợp đội nhóm từ 5 - 20 người</li>
+                    </ul>
+                    <div class="pricing-actions">
+                        <a [routerLink]="['/contact']" class="btn-primary no-underline">Đăng ký dùng thử</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ HOW IT WORKS ═══ -->
+    <section class="steps-section">
+        <div class="steps-inner">
+            <h2 class="section-title">Bắt đầu với ANT chỉ trong 3 bước</h2>
+            <div class="steps-grid">
+                @for (step of steps; track step.title; let i = $index) {
+                    <div class="step-card">
+                        <div class="step-number">{{ i + 1 }}</div>
+                        <h4 class="step-title">{{ step.title }}</h4>
+                        <p class="step-desc">{{ step.description }}</p>
+                    </div>
                 }
             </div>
         </div>
-    </div>
-    <div class="third-section">
-        <div class="home-content">
-            <span class="title font-bold text-center home-text-color">Cách sử dụng Đen Đen</span>
-            <div class="grid grid-nogutter gap-5"
-                [ngClass]="(bp.isMobile$ | async) ? 'w-screen' : ''">
-                @if (!(bp.isMobile$ | async)) {
-                    @for (guide of guides; track $index) {
-                        <div class="col-6 box-card justify-content-between">
-                            <img [src]="guide.image" class="box-card-image" alt="">
-                            <span class="box-card-content h-9rem">
-                                {{ guide.description }}
-                            </span>
-                        </div>
-                    }
-                }@else {
-                    <div class="col-12">
-                        <p-carousel allowVerticalScrollOnCarousel [value]="guides" [numVisible]="3" [numScroll]="1" [responsiveOptions]="bp.responsiveOptions"
-                            [showNavigators]="false"
-                            [circular]="false" [autoplayInterval]="7000">
-                            <ng-template pTemplate="item" let-guide>
-                                <div class="px-4">
-                                    <div class="box-card">
-                                        <img [src]="guide.image" class="box-card-image" alt="">
-                                        <span class="box-card-content h-14rem">
-                                            {{ guide.description }}
-                                        </span>
-                                    </div>
-                                </div>
-                            </ng-template>
-                        </p-carousel>
-                </div>
-                }
-            </div>
+    </section>
+
+    <!-- ═══ CTA BOTTOM ═══ -->
+    <section class="cta-section">
+        <div class="cta-inner">
+            <h2 class="cta-title">Sẵn sàng nâng tầm đội nhóm sale của bạn?</h2>
+            <p class="cta-desc">Đăng ký ngay hôm nay để trải nghiệm ANT miễn phí.</p>
+            <a [routerLink]="['/contact']" class="btn-primary btn-lg no-underline">Liên hệ & Tư vấn</a>
         </div>
-    </div>
-    <div class="fourth-section">
-        <div class="home-content align-items-center">
-            <span class="title text-center font-bold text-center home-text-color">
-                Cùng Đen Đen 
-                @if(!(bp.isMobile$ | async)){
-                    <img src="/images/logo_head.svg" alt="" style="transform: scaleX(-1);">
-                }
-                bắt đầu hành trình học tiếng anh vui vẻ cho bé ngày hôm nay!
-            </span>
-            <a [routerLink]="['/contact']" class="btn-contact no-underline">
-                Liên hệ & Tư vấn cho phụ huynh
-            </a>
-        </div>
-    </div>
+    </section>
 </div>

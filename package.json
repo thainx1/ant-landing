@@ -10,7 +10,7 @@
     "build:stg": "ng build --configuration staging",
     "test": "ng test",
     "serve:ssr:ant": "node dist/ant/server/server.mjs",
-    "build:ssr": "ng build && ng run ant:server",
+    "build:ssr": "ng build",
     "dev:ssr": "ng serve"
   },
   "prettier": {

@@ -105,7 +105,7 @@
 .desktop-nav {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: end;
     gap: 30px;
     flex: 1;
     margin-left: 48px;
@@ -117,7 +117,7 @@
 
 .nav-link {
     text-decoration: none;
-    color: var(--text-color);
+    color: #fff;
     font-weight: 500;
     font-size: 16px;
     padding: 4px 12px;
@@ -126,7 +126,7 @@
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
     &:hover {
-        color: var(--text-color);
+        color: #fff;
         border-color: var(--primary-color);
         // transform: translateY(-1px);
     }

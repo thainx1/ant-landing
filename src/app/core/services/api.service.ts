@@ -1,16 +1,65 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { Apollo } from 'apollo-angular';
 import { lastValueFrom, map, Observable } from 'rxjs';
+import { Query } from '../types';
 
 @Injectable({
   providedIn: 'root', // Available app-wide
 })
 export class ApiService {
 
+  private baseUrl: string;
+
   constructor(
-    private apollo: Apollo
-  ) { }
+    private apollo: Apollo,
+    private http: HttpClient,
+    @Inject('API_CONFIG') private apiConfig: { baseUrl: string }
+  ) {
+    this.baseUrl = this.apiConfig.baseUrl;
+  }
+
+  // REST API Methods
+  get<T>(endpoint: string, params?: HttpParams | any): Observable<T> {
+    return this.http.get<T>(`${this.baseUrl}/${endpoint}`, { params });
+  }
+
+  post<T>(endpoint: string, body: any, params?: HttpParams | any): Observable<T> {
+    return this.http.post<T>(`${this.baseUrl}/${endpoint}`, body, { params });
+  }
+
+  put<T>(endpoint: string, body: any, params?: HttpParams | any): Observable<T> {
+    return this.http.put<T>(`${this.baseUrl}/${endpoint}`, body, { params });
+  }
+
+  patch<T>(endpoint: string, body: any, params?: HttpParams | any): Observable<T> {
+    return this.http.patch<T>(`${this.baseUrl}/${endpoint}`, body, { params });
+  }
+
+  delete<T>(endpoint: string, params?: HttpParams | any): Observable<T> {
+    return this.http.delete<T>(`${this.baseUrl}/${endpoint}`, { params });
+  }
+
+  // REST API Methods
+  asyncGet<T>(endpoint: string, params?: HttpParams | any): Promise<T> {
+    return lastValueFrom(this.http.get<T>(`${this.baseUrl}/${endpoint}`, { params }));
+  }
+
+  asyncPost<T>(endpoint: string, body: any, params?: HttpParams | any): Promise<T> {
+    return lastValueFrom(this.http.post<T>(`${this.baseUrl}/${endpoint}`, body, { params }));
+  }
+
+  asyncPut<T>(endpoint: string, body: any, params?: HttpParams | any): Promise<T> {
+    return lastValueFrom(this.http.put<T>(`${this.baseUrl}/${endpoint}`, body, { params }));
+  }
+
+  asyncPatch<T>(endpoint: string, body: any, params?: HttpParams | any): Promise<T> {
+    return lastValueFrom(this.http.patch<T>(`${this.baseUrl}/${endpoint}`, body, { params }));
+  }
+
+  asyncDelete<T>(endpoint: string, params?: HttpParams | any): Promise<T> {
+    return lastValueFrom(this.http.delete<T>(`${this.baseUrl}/${endpoint}`, { params }));
+  }
 
   async executeQuery<T>(
     query: any,
@@ -20,7 +69,7 @@ export class ApiService {
       | 'cache-first'
       | 'network-only'
       | 'cache-only' = 'no-cache'
-  ): Promise<any | null> {
+  ): Promise<Query | any | null> {
     try {
       const result = await lastValueFrom(
         this.apollo

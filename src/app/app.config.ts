@@ -64,6 +64,10 @@ export const appConfig: ApplicationConfig = {
       theme: {
         preset: Aura
       }
-    })
+    }),
+    {
+      provide: 'API_CONFIG',
+      useValue: { baseUrl: environment.apiRestFull },
+    },
   ]
 };

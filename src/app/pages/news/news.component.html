@@ -1,87 +1,80 @@
-<div class="contact-container">
-    <section class="contact-section">
-        <div class="contact-grid">
-            <!-- Contact Information -->
-            <div class="contact-info">
-                <h2 class="info-title">Thông tin liên hệ</h2>
-                <p class="info-description">
-                    Hãy liên hệ với chúng tôi qua các kênh dưới đây hoặc điền vào form bên cạnh.
-                    Chúng tôi sẽ phản hồi trong thời gian sớm nhất.
-                </p>
-
-                <div class="info-cards">
-                    <div *ngFor="let info of contactInfo" class="info-card">
-                        <div class="info-icon">
-                            <i class="pi" [ngClass]="info.icon"></i>
-                        </div>
-                        <div class="info-details">
-                            <h3 class="info-card-title">{{ info.title }}</h3>
-                            <p class="info-card-content">{{ info.content }}</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="social-links">
-                    <h3 class="social-title">Kết nối với chúng tôi</h3>
-                    <div class="social-icons">
-                        <a href="#" class="social-icon" aria-label="Facebook">
-                            <i class="pi pi-facebook"></i>
-                        </a>
-                        <a href="#" class="social-icon" aria-label="Twitter">
-                            <i class="pi pi-twitter"></i>
-                        </a>
-                        <a href="#" class="social-icon" aria-label="LinkedIn">
-                            <i class="pi pi-linkedin"></i>
-                        </a>
-                        <a href="#" class="social-icon" aria-label="Instagram">
-                            <i class="pi pi-instagram"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Contact Form -->
-            <div class="contact-form-wrapper">
-                <h2 class="form-title">Gửi tin nhắn</h2>
-                <form class="contact-form" (ngSubmit)="onSubmit()">
-                    <div class="form-group">
-                        <label for="name">Họ và tên *</label>
-                        <input type="text" id="name" name="name" [(ngModel)]="formData.name" required
-                            placeholder="Nhập họ và tên của bạn">
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="email">Email *</label>
-                            <input type="email" id="email" name="email" [(ngModel)]="formData.email" required
-                                placeholder="email@example.com">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="phone">Số điện thoại</label>
-                            <input type="tel" id="phone" name="phone" [(ngModel)]="formData.phone"
-                                placeholder="0123 456 789">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="subject">Tiêu đề *</label>
-                        <input type="text" id="subject" name="subject" [(ngModel)]="formData.subject" required
-                            placeholder="Tiêu đề tin nhắn">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="message">Nội dung *</label>
-                        <textarea id="message" name="message" [(ngModel)]="formData.message" required rows="6"
-                            placeholder="Nhập nội dung tin nhắn của bạn..."></textarea>
-                    </div>
-
-                    <button type="submit" class="submit-button">
-                        <i class="pi pi-send"></i>
-                        Gửi tin nhắn
-                    </button>
-                </form>
+<div class="page-container">
+    <!-- ═══════════════ HERO BANNER ═══════════════ -->
+    <section class="hero-section" aria-label="Ảnh bìa tin tức">
+        @if (banner()?.imageUrlCallback) {
+        <img [src]="banner()?.imageUrlCallback" alt="" class="image-section">
+        } @else {
+        <div class="hero-placeholder">
+            <div class="hero-overlay">
+                <h1 class="hero-title">TIN TỨC</h1>
+                <p class="hero-subtitle">Cập nhật những thông tin mới nhất</p>
             </div>
         </div>
+        }
     </section>
+
+    <!-- ═══════════════ CONTENT ═══════════════ -->
+    <div class="news-wrapper">
+
+        <!-- ─── DETAIL VIEW ─── -->
+        @if (selectedNews()) {
+        <article class="news-detail">
+
+            <!-- Back button + Title row -->
+            <div class="detail-header">
+                <button class="btn-back" (click)="backToList()">
+                    <i class="pi pi-arrow-left"></i>
+                    Quay lại danh sách
+                </button>
+                <span class="detail-category">{{ selectedNews()!.category }}</span>
+            </div>
+
+            <h1 class="detail-title">{{ selectedNews()!.title }}</h1>
+
+            <div class="detail-meta">
+                <span><i class="pi pi-calendar"></i> {{ selectedNews()!.updatedAt | date:'dd/MM/yyyy' }}</span>
+            </div>
+
+            <div class="detail-thumb-wrapper">
+                <img [src]="selectedNews()!.thumbnail" [alt]="selectedNews()!.title" class="detail-thumb">
+            </div>
+
+            <div class="detail-content" [innerHTML]="selectedNews()!.content?.split('\n')?.join('<br>')"></div>
+
+        </article>
+
+        <!-- ─── LIST VIEW ─── -->
+        } @else {
+        <div class="news-list-section">
+            <div class="news-grid">
+                @for (item of allNews(); track item.id) {
+                <article class="news-card" (click)="openDetail(item)">
+                    <div class="news-thumb-wrapper">
+                        <img [src]="item.thumbnail" [alt]="item.title" class="news-thumb">
+                        <span class="news-category">{{ item.category }}</span>
+                    </div>
+                    <div class="news-body">
+                        <h3 class="news-title">{{ item.title }}</h3>
+                        <p class="news-short">{{ item.summary }}</p>
+                        <div class="news-footer">
+                            <span class="news-date"><i class="pi pi-calendar"></i> {{ item.updatedAt | date:
+                                'dd/MM/yyyy' }}</span>
+                            <span class="news-read-more">Xem thêm <i class="pi pi-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </article>
+                }
+            </div>
+
+            <!-- Paginator -->
+            @if (totalRecord() > pageSize()) {
+            <div class="paginator-wrapper">
+                <p-paginator [rows]="pageSize()" [totalRecords]="totalRecord()" [first]="currentPage() * pageSize()"
+                    (onPageChange)="onPageChange($event)" />
+            </div>
+            }
+        </div>
+        }
+
+    </div>
 </div>

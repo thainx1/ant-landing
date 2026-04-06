@@ -38,13 +38,13 @@ export class HeaderComponent {
         },
         { 
             label: 'Về chúng tôi', 
-            route: '/',
+            route: '/about',
             icon: '',
             path: 'images/icons/menu_1.svg'
         },
         { 
             label: 'Tin tức', 
-            route: '/home',
+            route: '/news',
             icon: '',
             path: 'images/icons/menu_2.svg'
         },

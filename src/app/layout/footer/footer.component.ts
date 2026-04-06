@@ -15,8 +15,30 @@ export class FooterComponent {
     currentYear = new Date().getFullYear();
     constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
     menuItems = [
-        { label: 'Về chúng tôi', route: '/' },
-        { label: 'Về Đen Đen', route: '/home' },
+        { 
+            label: 'Giải pháp sale BĐS', 
+            route: '/home',
+            icon: '',
+            path: 'images/icons/menu_2.svg'
+        },
+        { 
+            label: 'Về chúng tôi', 
+            route: '/about',
+            icon: '',
+            path: 'images/icons/menu_1.svg'
+        },
+        { 
+            label: 'Tin tức', 
+            route: '/news',
+            icon: '',
+            path: 'images/icons/menu_2.svg'
+        },
+        { 
+            label: 'Liên hệ', 
+            route: '/contact',
+            icon: '',
+            path: 'images/icons/menu_3.svg'
+        },
         { label: 'Chính sách bảo mật', route: '/privacy' },
     ];
 }

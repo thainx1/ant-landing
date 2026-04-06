@@ -1,0 +1,53 @@
+<div class="about-container">
+    <section class="mission-section">
+        <div class="content-wrapper">
+            <div class="mission-content">
+                <h2 class="section-title">Sứ mệnh của chúng tôi</h2>
+                <p class="mission-text">
+                    Công ty TNHH Datrec Việt Nam là một doanh nghiệp hoạt động trong lĩnh vực thương mại điện tử, chuyên cung cấp các sản phẩm thiết yếu đến người tiêu dùng Việt Nam. Ngay từ những bước khởi đầu, công ty đã xây dựng nền tảng vững chắc cho định hướng phát triển bền vững, lấy chất lượng sản phẩm và giá trị phục vụ khách hàng làm trọng tâm.
+                </p>
+            </div>
+
+            <div class="vision-content">
+                <h2 class="section-title">Tầm nhìn</h2>
+                <p class="vision-text">
+                    Datrec từng bước chuyển mình sang lĩnh vực công nghệ, tập trung vào nghiên cứu, phát triển và phân phối các sản phẩm ứng dụng công nghệ trong đời sống. Doanh nghiệp xây dựng hệ thống kinh doanh đa kênh, kết hợp giữa bán buôn, bán lẻ trên các nền tảng thương mại điện tử và hệ thống cửa hàng trực tiếp, nhằm đưa các giải pháp công nghệ đến gần hơn với người tiêu dùng.
+                    <br/>
+                    Với triết lý <strong>“kinh doanh không phải là bán sản phẩm, mà là mang đến giải pháp cho khách hàng”</strong>, Datrec không ngừng đầu tư vào nghiên cứu và đổi mới sáng tạo. 
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="values-section">
+        <h2 class="section-title">Giá trị cốt lõi</h2>
+        <div class="values-grid">
+            @for (value of values; track value.title) {
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="pi" [ngClass]="value.icon"></i>
+                    </div>
+                    <h3 class="value-title">{{ value.title }}</h3>
+                    <p class="value-description">{{ value.description }}</p>
+                </div>
+            }
+        </div>
+    </section>
+
+    <section class="stats-section">
+        <div class="stats-grid">
+            @for (stat of stats; track stat.label) {
+                <div class="stat-card">
+                    <div class="stat-number">{{ stat.number }}</div>
+                    <div class="stat-label">{{ stat.label }}</div>
+                </div>
+            }
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-content">
+            <button class="cta-button">Liên hệ ngay</button>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 94.34 68.52">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4 {
+        stroke-miterlimit: 10;
+      }
+
+      .cls-1, .cls-3, .cls-4 {
+        stroke: #0e2a66;
+        stroke-width: 1.75px;
+      }
+
+      .cls-5, .cls-4 {
+        fill: #fff;
+      }
+
+      .cls-6 {
+        fill: #0b397c;
+      }
+
+      .cls-2 {
+        fill: url(#linear-gradient-3);
+        stroke: #5dc5f9;
+        stroke-width: 1.78px;
+      }
+
+      .cls-3 {
+        fill: url(#linear-gradient-2);
+      }
+
+      .cls-7 {
+        fill: #88bdf2;
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="172.81" y1="-386.64" x2="173.14" y2="-361.46" gradientTransform="translate(-144.1 421.5) rotate(-3.55)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#88bdf2"/>
+      <stop offset="1" stop-color="#1772bc"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="8363.54" y1="-492.12" x2="8363.86" y2="-466.93" gradientTransform="translate(8462.49 -223.58) rotate(174.98) scale(1 -1)" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-3" x1="220.6" y1="-422.26" x2="220.6" y2="-473.49" gradientTransform="translate(-138.74 505.59) rotate(-4.29)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#40aafe"/>
+      <stop offset=".07" stop-color="#348dda"/>
+      <stop offset=".16" stop-color="#2971b6"/>
+      <stop offset=".25" stop-color="#205999"/>
+      <stop offset=".34" stop-color="#184783"/>
+      <stop offset=".45" stop-color="#133a73"/>
+      <stop offset=".56" stop-color="#103369"/>
+      <stop offset=".72" stop-color="#103167"/>
+    </linearGradient>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <path class="cls-1" d="M.91,37.71c.41,6.95,4.65,12.32,9.49,12l-1.47-25.15c-4.84.31-8.43,6.19-8.03,13.14Z"/>
+      <path class="cls-3" d="M93.39,30.77c.64,6.93-2.76,12.87-7.6,13.29l-2.3-25.08c4.84-.41,9.26,4.87,9.9,11.8Z"/>
+      <path class="cls-4" d="M86.84,31.29c.75,10.07-1.26,20.65-9.6,27.41-7.6,6.17-18.08,7.92-27.62,8.64-9.53.71-20.16.54-28.6-4.43-9.25-5.44-12.82-15.61-13.58-25.68-.75-10.06,1.26-20.65,9.6-27.41C24.66,3.66,35.15,1.9,44.67,1.19c9.53-.71,20.16-.54,28.59,4.43,9.25,5.44,12.82,15.6,13.57,25.68Z"/>
+      <path class="cls-2" d="M49.17,61.16c-7.72.58-17.49.72-24.54-3.33-7.38-4.25-9.53-13.09-10.03-19.76s.3-15.73,6.97-21.04c6.36-5.06,16.04-6.38,23.77-6.95,7.72-.58,17.49-.72,24.53,3.33,7.38,4.25,9.53,13.09,10.03,19.76.5,6.67-.3,15.73-6.97,21.04-6.36,5.06-16.04,6.37-23.76,6.95h0Z"/>
+      <g>
+        <ellipse class="cls-5" cx="31.25" cy="33.41" rx="11.13" ry="12.38" transform="translate(-2.41 2.43) rotate(-4.29)"/>
+        <ellipse class="cls-6" cx="32.92" cy="34.81" rx="8.26" ry="9.41" transform="translate(-2.51 2.56) rotate(-4.29)"/>
+        <circle class="cls-5" cx="32.42" cy="30.97" r="4.43"/>
+      </g>
+      <g>
+        <ellipse class="cls-5" cx="63.79" cy="30.97" rx="11.13" ry="12.38" transform="translate(-2.14 4.85) rotate(-4.29)"/>
+        <ellipse class="cls-6" cx="62.24" cy="32.61" rx="8.26" ry="9.41" transform="translate(-2.26 4.74) rotate(-4.29)"/>
+        <circle class="cls-5" cx="61.55" cy="28.98" r="4.43"/>
+      </g>
+      <path class="cls-5" d="M55.91,46.27c-.28.96-.87,2.08-2.09,2.94-.99.69-2.39,1.22-4.37,1.35-1.88.12-3.3-.13-4.37-.6-1.59-.69-2.39-1.83-2.8-2.83-.4-.97.29-2.04,1.33-2.11l10.72-.7c1.06-.07,1.89.93,1.59,1.95Z"/>
+      <path class="cls-7" d="M53.81,49.21c-.99.69-2.39,1.22-4.37,1.35-1.88.12-3.3-.13-4.37-.6.35-1.21,2.04-2.26,4.23-2.42,2.14-.16,3.93.57,4.51,1.67Z"/>
+    </g>
+  </g>
+</svg>

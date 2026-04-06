@@ -1,0 +1,111 @@
+<div class="home-container">
+    <div class="hero-section">
+        <div class="home-content w-full">
+            <!-- @if (banner()?.imageUrlCallback) {
+                <img [src]="banner()?.imageUrlCallback" class="image-section" alt="">
+            } @else { -->
+            <div class="grid grid-nogutter">
+                <div class="col-12 md:col-6 content-left">
+                    <div class="flex justify-content-start">
+                        <img src="/images/logo_text.svg" class="image" alt="">
+                    </div>
+                    <span class="title font-bold home-text-color">Người bạn đồng hành giúp bé tự tin học tiếng Anh</span>
+                    <span class="content">Đen Đen là robot đồng hành giúp bé học tiếng Anh qua tương tác hằng ngày, hình thành thói quen và phát triển nền tảng toàn diện.</span>
+                    <div class="flex align-items-center justify-content-start gap-3">
+                        <a [routerLink]="['/contact']" class="flex-1 btn-extra no-underline">Đăng ký tư vấn</a>
+                        <a [routerLink]="['/contact']" class="btn-support no-underline">Liên hệ</a>
+                    </div>
+                </div>
+                <div class="col-12 md:col-6 content-right">
+                    <img src="/images/home/banner_logo.svg" class="image-section" alt="">
+                </div>
+            </div>
+            <!-- } -->
+        </div>
+    </div>
+    <div class="secondary-section">
+        <div class="home-content">
+            <span class="title font-bold text-center home-text-color">Khi học cùng Đen Đen, bé sẽ tiến bộ như thế nào?</span>
+            <div class="grid grid-nogutter gap-5" [ngClass]="(bp.isMobile$ | async) ? 'w-screen' : ''">
+                @if(!(bp.isMobile$ | async)){
+                    @for (feature of features; track $index) {
+                    <div class="col-4 box-card">
+                        <img [src]="feature.image" class="box-card-image" alt="">
+                        <span class="box-card-title home-text-color">{{ feature.title }}</span>
+                        <span class="box-card-content">
+                            {{ feature.description }}
+                        </span>
+                    </div>
+                    }
+                }@else {
+                    <div class="col-12">
+                        <p-carousel allowVerticalScrollOnCarousel [value]="features" [numVisible]="3" [numScroll]="1" [responsiveOptions]="bp.responsiveOptions"
+                            [showNavigators]="false"
+                            [circular]="false" [autoplayInterval]="3000">
+                            <ng-template pTemplate="item" let-feature>
+                                <div class="px-4">
+                                    <div class="box-card">
+                                        <img [src]="feature.image" class="box-card-image" alt="">
+                                        <span class="box-card-title">{{ feature.title }}</span>
+                                        <span class="box-card-content">
+                                            {{ feature.description }}
+                                        </span>
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </p-carousel>
+                </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="third-section">
+        <div class="home-content">
+            <span class="title font-bold text-center home-text-color">Cách sử dụng Đen Đen</span>
+            <div class="grid grid-nogutter gap-5"
+                [ngClass]="(bp.isMobile$ | async) ? 'w-screen' : ''">
+                @if (!(bp.isMobile$ | async)) {
+                    @for (guide of guides; track $index) {
+                        <div class="col-6 box-card justify-content-between">
+                            <img [src]="guide.image" class="box-card-image" alt="">
+                            <span class="box-card-content h-9rem">
+                                {{ guide.description }}
+                            </span>
+                        </div>
+                    }
+                }@else {
+                    <div class="col-12">
+                        <p-carousel allowVerticalScrollOnCarousel [value]="guides" [numVisible]="3" [numScroll]="1" [responsiveOptions]="bp.responsiveOptions"
+                            [showNavigators]="false"
+                            [circular]="false" [autoplayInterval]="7000">
+                            <ng-template pTemplate="item" let-guide>
+                                <div class="px-4">
+                                    <div class="box-card">
+                                        <img [src]="guide.image" class="box-card-image" alt="">
+                                        <span class="box-card-content h-14rem">
+                                            {{ guide.description }}
+                                        </span>
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </p-carousel>
+                </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="fourth-section">
+        <div class="home-content align-items-center">
+            <span class="title text-center font-bold text-center home-text-color">
+                Cùng Đen Đen 
+                @if(!(bp.isMobile$ | async)){
+                    <img src="/images/logo_head.svg" alt="" style="transform: scaleX(-1);">
+                }
+                bắt đầu hành trình học tiếng anh vui vẻ cho bé ngày hôm nay!
+            </span>
+            <a [routerLink]="['/contact']" class="btn-contact no-underline">
+                Liên hệ & Tư vấn cho phụ huynh
+            </a>
+        </div>
+    </div>
+</div>

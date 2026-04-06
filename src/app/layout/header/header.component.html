@@ -1,0 +1,55 @@
+<header class="header" [class.scrolled]="isScrolled()">
+    <div class="header-content">
+        <!-- Mobile Menu Icon (Left) -->
+        <button class="menu-button mobile-only" (click)="toggleSidebar()" aria-label="Menu">
+            <i class="pi pi-bars"></i>
+        </button>
+
+        <!-- Logo (Center on mobile, Left on desktop) -->
+        <div class="logo">
+            <img src="/images/logo.png" alt="Logo">
+        </div>
+
+        <!-- Desktop Navigation (Hidden on mobile) -->
+        <nav class="desktop-nav">
+            @for (item of menuItems; track $index) {
+                <a [routerLink]="item.route" routerLinkActive="active"
+                    [routerLinkActiveOptions]="{exact: item.route === '/'}" class="nav-link">
+                    {{ item.label }}
+                </a>
+            }
+        </nav>
+    </div>
+</header>
+
+<!-- Mobile Sidebar -->
+<div class="sidebar" [class.visible]="sidebarVisible()">
+    <div class="sidebar-header">
+        <h2 class="sidebar-title">Menu</h2>
+        <button class="close-button" (click)="toggleSidebar()">
+            <i class="pi pi-times"></i>
+        </button>
+    </div>
+
+    <nav class="mobile-nav">
+        @for (item of menuItems; track $index) {
+            <a [routerLink]="item.route" routerLinkActive="active"
+                [routerLinkActiveOptions]="{exact: item.route === '/'}" class="mobile-nav-link" (click)="toggleSidebar()">
+                <div class="mobile-nav-link-icon">
+                    @if(item.icon){
+                        <i [class]="item.icon"></i>
+                    } @else {
+                        <img [src]="item.path" alt="">
+                    }
+                </div>
+                <span class="mobile-nav-link-text">
+                    {{ item.label }}
+                </span>
+            </a>
+        }
+    </nav>
+</div>
+
+<!-- Sidebar Overlay -->
+<div class="sidebar-overlay" [class.visible]="sidebarVisible()" (click)="toggleSidebar()">
+</div>

@@ -1,0 +1,40 @@
+<div class="privacy-container">
+    <section class="intro-section">
+        <div class="content-wrapper">
+            <h1 class="page-title">Chính sách bảo mật</h1>
+            <p class="intro-text">
+                Chúng tôi cam kết bảo vệ quyền riêng tư và thông tin cá nhân của bạn. 
+                Chính sách này giải thích cách chúng tôi thu thập, sử dụng và bảo vệ dữ liệu của bạn.
+            </p>
+            <p class="last-updated">Cập nhật lần cuối: {{ lastUpdated }}</p>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="content-wrapper">
+            <div *ngFor="let section of sections" class="policy-section">
+                <h2 class="section-title">{{ section.title }}</h2>
+                <p class="section-content">{{ section.content }}</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="highlight-section">
+        <div class="highlight-content">
+            <i class="pi pi-shield-check"></i>
+            <h3 class="highlight-title">Cam kết bảo mật</h3>
+            <p class="highlight-text">
+                Chúng tôi sử dụng công nghệ mã hóa SSL/TLS tiên tiến và tuân thủ các tiêu chuẩn bảo mật quốc tế 
+                để đảm bảo thông tin của bạn luôn được bảo vệ tuyệt đối.
+            </p>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2 class="cta-title">Có câu hỏi về chính sách bảo mật?</h2>
+            <p class="cta-text">Đội ngũ của chúng tôi luôn sẵn sàng hỗ trợ bạn</p>
+            <a routerLink="/contact" class="cta-button">Liên hệ ngay</a>
+        </div>
+    </section>
+</div>

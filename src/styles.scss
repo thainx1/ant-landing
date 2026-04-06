@@ -1,0 +1,280 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* PrimeNG Icons */
+@import "primeicons/primeicons.css";
+
+/* PrimeFlex - CSS Utility Library */
+@import "primeflex/primeflex.css";
+
+@font-face {
+    font-family: 'Nunito';
+    src: url('/fonts/Nunito-VariableFont_wght.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 200 1000;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Nunito';
+    src: url('/fonts/Nunito-Italic-VariableFont_wght.ttf') format('truetype');
+    font-style: italic;
+    font-weight: 200 1000;
+    font-display: swap;
+}
+
+.nunito-normal {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 400;
+}
+
+.nunito-italic {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+/* Custom Color Variables for PrimeFlex */
+:root {
+    --primary-color: #155551;
+    --secondary-color: #155551;
+
+    /* Primary Colors */
+    --primary-50: #f3f0ff;
+    --primary-100: #e9e2ff;
+    --primary-200: #d4c5ff;
+    --primary-300: #b89dff;
+    --primary-400: #9b70ff;
+    --primary-500: #667eea;
+    --primary-600: #5568d3;
+    --primary-700: #4451b8;
+    --primary-800: #363f9d;
+    --primary-900: #2d3282;
+
+    /* Secondary Colors */
+    --secondary-50: #faf5ff;
+    --secondary-100: #f3e8ff;
+    --secondary-200: #e9d5ff;
+    --secondary-300: #d8b4fe;
+    --secondary-400: #c084fc;
+    --secondary-500: #764ba2;
+    --secondary-600: #653d8a;
+    --secondary-700: #543173;
+    --secondary-800: #44265d;
+    --secondary-900: #361f4a;
+
+    /* Success Colors */
+    --success-50: #f0fdf4;
+    --success-100: #dcfce7;
+    --success-200: #bbf7d0;
+    --success-300: #86efac;
+    --success-400: #4ade80;
+    --success-500: #22c55e;
+    --success-600: #16a34a;
+    --success-700: #15803d;
+    --success-800: #166534;
+    --success-900: #14532d;
+
+    /* Info Colors */
+    --info-50: #eff6ff;
+    --info-100: #dbeafe;
+    --info-200: #bfdbfe;
+    --info-300: #93c5fd;
+    --info-400: #60a5fa;
+    --info-500: #3b82f6;
+    --info-600: #2563eb;
+    --info-700: #1d4ed8;
+    --info-800: #1e40af;
+    --info-900: #1e3a8a;
+
+    /* Warning Colors */
+    --warning-50: #fffbeb;
+    --warning-100: #fef3c7;
+    --warning-200: #fde68a;
+    --warning-300: #fcd34d;
+    --warning-400: #fbbf24;
+    --warning-500: #f59e0b;
+    --warning-600: #d97706;
+    --warning-700: #b45309;
+    --warning-800: #92400e;
+    --warning-900: #78350f;
+
+    /* Danger/Error Colors */
+    --danger-50: #fef2f2;
+    --danger-100: #fee2e2;
+    --danger-200: #fecaca;
+    --danger-300: #fca5a5;
+    --danger-400: #f87171;
+    --danger-500: #155551;
+    --danger-600: #dc2626;
+    --danger-700: #b91c1c;
+    --danger-800: #991b1b;
+    --danger-900: #7f1d1d;
+
+    /* Surface Colors */
+    --surface-ground: #f8f9fa;
+    --surface-section: #ffffff;
+    --surface-card: #ffffff;
+    --surface-overlay: #ffffff;
+    --surface-border: #dee2e6;
+    --surface-hover: #f8f9fa;
+
+    /* Text Colors */
+    --text-color: #ffffff;
+    --text-color-secondary: #ffffff;
+    --text-color-muted: #adb5bd;
+
+    /* Gray Scale */
+    --gray-50: #f9fafb;
+    --gray-100: #f3f4f6;
+    --gray-200: #e5e7eb;
+    --gray-300: #d1d5db;
+    --gray-400: #9ca3af;
+    --gray-500: #6b7280;
+    --gray-600: #4b5563;
+    --gray-700: #374151;
+    --gray-800: #1f2937;
+    --gray-900: #111827;
+
+    /* Blue Scale */
+    --blue-50: #E6F7FF;
+    --blue-100: #3FA9F5;
+    --blue-200: #0071BC;
+    --blue-300: #0055BA;
+    --blue-400: #1F3D68;
+
+    /* Orange Scale */
+    --orange-500: #FBB03B;
+}
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Nunito';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: var(--text-color);
+    background-color: var(--surface-ground);
+}
+
+.break-all {
+    word-break: break-all;
+}
+
+.break-word {
+    word-break: break-word;
+}
+
+.font-92 {
+    font-family: 'Nunito';
+    font-weight: 700;
+    font-size: 92px;
+}
+
+.font-65 {
+    font-family: 'Nunito';
+    font-size: 65px;
+}
+
+.font-60 {
+    font-family: 'Nunito';
+    font-size: 60px;
+}
+
+.font-46 {
+    font-family: 'Nunito';
+    font-size: 46px;
+}
+
+.font-32 {
+    font-family: 'Nunito';
+    font-size: 32px;
+}
+
+.font-30 {
+    font-family: 'Nunito';
+    font-size: 30px;
+}
+
+.font-24 {
+    font-family: 'Nunito';
+    font-size: 24px;
+}
+
+.font-22 {
+    font-family: 'Nunito';
+    font-size: 22px;
+}
+
+.font-18 {
+    font-family: 'Nunito';
+    font-size: 18px;
+}
+
+.p-anchored-overlay-enter-active {
+    animation: demo-overlay-in 300ms ease-out;
+}
+
+.p-anchored-overlay-leave-active {
+    animation: demo-overlay-out 250ms ease-in;
+}
+
+.btn-round-25 {
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.btn-round-22 {
+    border-radius: 22px;
+    cursor: pointer;
+}
+
+.bg-transparent {
+    background: transparent !important;
+}
+
+@keyframes demo-overlay-in {
+    from {
+        opacity: 0;
+        transform: translateY(10%);
+    }
+}
+
+@keyframes demo-overlay-out {
+    to {
+        opacity: 0;
+        transform: translateY(10%);
+    }
+}
+
+.gradient-box {
+    background: linear-gradient(to bottom,
+            var(--blue-100) 0%,
+            var(--blue-50) 80%,
+            white 100%);
+    border: 2px solid white;
+    border-radius: 60px;
+    padding: 80px 40px;
+
+    @media (max-width: 768px) {
+        padding: 40px 16px;
+    }
+}
+
+.gradient-box-reverse {
+    background: linear-gradient(to bottom,
+            white 0%,
+            white 20%,
+            var(--blue-100) 100%);
+    border: 2px solid white;
+    border-radius: 60px;
+    padding: 80px 40px;
+
+    @media (max-width: 768px) {
+        padding: 40px 16px;
+    }
+}

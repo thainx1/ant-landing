@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  apiGraphQL: 'https://stg-api.denden.vn/graphql',
-  socket: 'https://stg-api.denden.vn/graphql',
-  apiRestFull: 'https://stg-api.denden.vn',
+  apiGraphQL: 'https://api-ant.htezlife.com/graphql',
+  socket: 'https://api-ant.htezlife.com/graphql',
+  apiRestFull: 'https://api-ant.htezlife.com/api',
 };

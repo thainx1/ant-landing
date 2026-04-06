@@ -98,7 +98,7 @@
     width: 80px;
     height: 80px;
     margin: 0 auto 24px;
-    background: linear-gradient(135deg, #155551 0%, #fca5a5 100%);
+    background: linear-gradient(135deg, #155551 0%, #155551 100%);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -125,7 +125,7 @@
 
 .stats-section {
     padding: 80px 24px;
-    background: linear-gradient(to top, #155551 0%, #fca5a5 100%);
+    background: linear-gradient(to top, #155551 0%, #155551 100%);
     color: white;
 
     @media (max-width: 768px) {
@@ -215,7 +215,7 @@
     padding: 16px 48px;
     font-size: 18px;
     font-weight: 600;
-    background: linear-gradient(135deg, #155551 0%, #fca5a5 100%);
+    background: linear-gradient(135deg, #155551 0%, #155551 100%);
     color: white;
     border: none;
     border-radius: 8px;

@@ -24,8 +24,10 @@
 
     img:first-child {
         width: 150px;
-        height: auto;
+        height: 150px;
         object-fit: contain;
+        background-color: #fff;
+        border-radius: 50%;
     }
 
     img:not(:first-child) {

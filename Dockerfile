@@ -13,22 +13,20 @@ RUN npm ci --legacy-peer-deps
 COPY . .
 
 # Build the application for SSR
-RUN npm run build:ssr
+RUN npm run build:prod
 
-# Stage 2: Serve with Node.js
-FROM node:20-alpine
 
-WORKDIR /app
+# Stage 2: Serve with Nginx
+FROM nginx:alpine
 
-# Copy built application and package files
-COPY --from=build /app/dist ./dist
-COPY --from=build /app/package*.json ./
+# Copy custom nginx configuration
+COPY nginx.conf /etc/nginx/nginx.conf
 
-# Install production dependencies
-RUN npm ci --omit=dev --legacy-peer-deps
+# Copy built application from build stage
+COPY --from=build /app/dist/ant/browser /usr/share/nginx/html
 
-# Expose port (default Angular SSR port)
-EXPOSE 4000
+# Expose port (Railway will assign PORT environment variable)
+EXPOSE 80
 
-# Start SSR server
-CMD ["npm", "run", "serve:ssr:ant"]
+# Start Nginx
+CMD ["nginx", "-g", "daemon off;"]

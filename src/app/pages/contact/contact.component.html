@@ -1,362 +1,112 @@
-<div class="contact-container">
-    @if(isSupport()){
-    <div class="third-section" id="supportTitle">
-        <div class="contact-content">
-            <div class="flex flex-column gap-3">
-                <div class="support-title">Đăng kí để nhận tư vấn cho bé</div>
-                <div class="support-subtitle">
-                    Đen Đen dựa bé từ con số 0 đến từ tin giao tiếp tiếng Anh qua hành trình đầy ứp niềm vui
-                </div>
-            </div>
-            <div class="form-grid">
-                <!-- Left side - Form -->
-                <div class="box-card justify-content-between pb-0">
-                    <form [formGroup]="contactForm" class="flex flex-column gap-5">
-                        <div class="form-group">
-                            <label class="form-label">Họ tên phụ huynh</label>
-                            <input type="text" class="form-input" placeholder="Nhập tên" 
-                                formControlName="parentName">
-                            @if (contactForm.get('parentName')?.hasError('required') && contactForm.get('parentName')?.touched) {
-                            <div class="error-message">Vui lòng nhập họ tên phụ huynh</div>
-                            }
-                        </div>
-
-                        <div class="form-group">
-                            <label class="form-label">Số điện thoại</label>
-                            <input type="tel" class="form-input" placeholder="Nhập số điện thoại" 
-                                formControlName="phoneNumber" maxlength="10">
-                            @if (contactForm.get('phoneNumber')?.hasError('required') && contactForm.get('phoneNumber')?.touched) {
-                            <div class="error-message">Vui lòng nhập số điện thoại</div>
-                            }
-                            @if (contactForm.get('phoneNumber')?.hasError('pattern') && contactForm.get('phoneNumber')?.touched) {
-                            <div class="error-message">Số điện thoại phải là 10 chữ số</div>
-                            }
-                        </div>
-
-                        <div class="form-group">
-                            <label class="form-label">Độ tuổi của bé</label>
-                            <input type="number" class="form-input" placeholder="Nhập độ tuổi" 
-                                formControlName="childAge" min="0">
-                            @if (contactForm.get('childAge')?.hasError('required') && contactForm.get('childAge')?.touched) {
-                            <div class="error-message">Vui lòng nhập độ tuổi của bé</div>
-                            }
-                            @if (contactForm.get('childAge')?.hasError('pattern') && contactForm.get('childAge')?.touched) {
-                            <div class="error-message">Độ tuổi phải là số nguyên</div>
-                            }
-                        </div>
-
-                        <div class="form-group pt-4">
-                            <label class="form-label">Nhu cầu của bé và gia đình</label>
-                            <div class="flex flex-column gap-3">
-                                <label class="radio-label">
-                                    <input type="radio" value="Làm quen với tiếng Anh" 
-                                        formControlName="childNeeds">
-                                    <span>Làm quen với tiếng Anh</span>
-                                </label>
-                                <label class="radio-label">
-                                    <input type="radio" value="Muốn con có góc tiếng Anh vững" 
-                                        formControlName="childNeeds">
-                                    <span>Muốn con có góc tiếng Anh vững</span>
-                                </label>
-                                <label class="radio-label">
-                                    <input type="radio" value="Muốn con giao tiếp tự tin hơn" 
-                                        formControlName="childNeeds">
-                                    <span>Muốn con giao tiếp tự tin hơn</span>
-                                </label>
-                            </div>
-                            @if (contactForm.get('childNeeds')?.hasError('required') && contactForm.get('childNeeds')?.touched) {
-                            <div class="error-message">Vui lòng chọn nhu cầu của bé và gia đình</div>
-                            }
-                        </div>
-                    </form>
-                    <div class="flex justify-content-center pt-5 relative">
-                        <button class="btn-submit" 
-                                [ngClass]="this.contactForm.valid ? 'bg-orange-500' : 'bg-gray-200'"
-                                (click)="submitContactForm()">
-                            Nhận tư vấn cho bé
-                        </button>
-                    </div>
-                </div>
-                <!-- Right side - Commitment & Info -->
-                <div class="flex flex-column gap-4">
-                    <div class="box-card">
-                        <div class="commitment-box">
-                            <div class="commitment-title">Cam kết</div>
-                            <div class="flex flex-column gap-2">
-                                <div class="commitment-item">
-                                    <i class="pi pi-check-circle"></i>
-                                    <span>Không spam cuộc gọi</span>
-                                </div>
-                                <div class="commitment-item">
-                                    <i class="pi pi-check-circle"></i>
-                                    <span>Chỉ tư vấn là tính khi phụ huynh đồng ý</span>
-                                </div>
-                                <div class="commitment-item">
-                                    <i class="pi pi-check-circle"></i>
-                                    <span>Bảo mật thông tin tuyệt đối</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="box-card pb-2">
-                        <div class="flex flex-column gap-4">
-                            <div class="info-title">Đen Đen luôn đồng hành cùng gia đình bạn</div>
-                            <div class="info-subtitle">
-                                Đen Đen luôn ở bên cạnh bé lúng khoảnh khắc học và chơi
-                            </div>
-                        </div>
-                        <div class="flex justify-content-center">
-                            <img src="/images/contact/study.png" alt="Support" class="support-image">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="fourth-section">
-        <div class="contact-content">
-            <div class="support-title">Chúng tôi sẽ tư vấn</div>
-            <div class="support-grid">
-                <div class="support-item">
-                    <img src="/images/contact/support_1.png" alt="Support" class="image">
-                    <div class="text">Phù hợp độ tuổi</div>
-                </div>
-                <div class="support-item">
-                    <img src="/images/contact/support_2.png" alt="Support" class="image">
-                    <div class="text">Bắt đầu từ đâu</div>
-                </div>
-                <div class="support-item">
-                    <img src="/images/contact/support_3.png" alt="Support" class="image">
-                    <div class="text">Cách học phù hợp</div>
-                </div>
-                <div class="support-item">
-                    <img src="/images/contact/support_4.png" alt="Support" class="image">
-                    <div class="text">Quản lý lộ trình</div>
-                </div>
-            </div>
-        </div>
-    </div>
-    } @else {
-    <div class="hero-section">
-        <div class="flex-1 flex align-items-center justify-content-end">
-            @if (banner()?.imageUrlCallback) {
-            <img [src]="banner()?.imageUrlCallback" class="image-section" alt="">
-            }
-        </div>
-    </div>
-    <div class="secondary-section">
-        <div id="resultTitle" class="contact-content">
-            @if (isQuestion()) {
-                <div class="flex justify-content-center">
-                    <div class="btn-contact bg-blue-200">
-                        Quick Test
-                    </div>
-                </div>
-            }
-            <div class="box-card gap-3">
-                @if (isQuestion()) {
-                    @for (question of questions; track question.title) {
-                    <div class="question">
-                        <div class="question-title">{{ question.title }}</div>
-                        <div class="question-values grid grid-nogutter">
-                            @for (value of question.values; track value.value) {
-                            <div class="question-value" [ngClass]="(bp.isMobile$ | async) ? 'col-12' : 'flex-1'">
-                                <input type="radio" name="{{ question.title }}" [value]="value.value"
-                                    [checked]="isAnswerSelected(question.id, value.value)"
-                                    (change)="updateFormData(question.id, value.value, value.cost)">
-                                <span class="break-word">{{ value.label }}</span>
-                            </div>
-                            }
-                        </div>
-                    </div>
-                    }
-                    <div class="flex justify-content-center">
-                        <div class="btn-contact"
-                                [ngClass]="this.formData().length < 5 ? 'bg-gray-200' : 'bg-orange-500'"
-                                (click)="saveForm()">
-                            Nhận kết quả
-                        </div>
-                    </div>
-                }
-                @if (isResult()) {
-                    <div class="flex justify-content-center">
-                        <div class="result-title">Kết quả</div>
-                    </div>
-                    <div class="flex justify-content-center">
-                        <img class="result-image" [src]="level().image" alt="">
-                    </div>
-                    <div class="flex align-items-center justify-content-center gap-3">
-                        <div class="result-title">
-                            Bé hiện đang ở
-                        </div>
-                        <div class="result-level">
-                            <span class="text-white text-2xl font-bold">{{ level().name }}</span>
-                        </div>
-                    </div>
-                    <div class="flex align-items-center justify-content-center">
-                        <span class="result-text">{{ level().description }}</span>
-                    </div>
-                    <div class="flex justify-content-center">
-                        <div class="btn-contact bg-orange-500" (click)="support()">
-                            Tư vấn thêm
-                        </div>
-                    </div>
-                }
-                @if (isCompleted()) {
-                    <div class="flex justify-content-center">
-                        <img class="result-image" [src]="level().image" alt="">
-                    </div>
-                    <div class="flex flex-column justify-content-center">
-                        <div class="result-subtitle">Thông tin của bạn đã được ghi nhận</div>
-                        <div class="result-title">Cảm ơn bạn đã đăng ký</div>
-                        <div class="result-text">Đen Đen sẽ liên hệ với bạn trong thời gian sớm nhất</div>
-                    </div>
-                    <div class="flex justify-content-center">
-                        <a routerLink="/home" class="btn-contact bg-orange-500 no-underline">
-                            Quay lại trang chủ
-                        </a>
-                    </div>
-                }
-            </div>
-        </div>
-        @if(isQuestion()){
-        <div class="third-section bg-transparent" id="supportTitle">
-            <div class="contact-content">
-                <div class="flex flex-column gap-3">
-                    <div class="support-title">Đăng kí để nhận tư vấn cho bé</div>
-                    <div class="support-subtitle">
-                        Đen Đen dựa bé từ con số 0 đến từ tin giao tiếp tiếng Anh qua hành trình đầy ứp niềm vui
-                    </div>
-                </div>
-                <div class="form-grid">
-                    <!-- Left side - Form -->
-                    <div class="box-card justify-content-between pb-0">
-                        <form [formGroup]="contactForm" class="flex flex-column gap-5">
-                            <div class="form-group">
-                                <label class="form-label">Họ tên phụ huynh</label>
-                                <input type="text" class="form-input" placeholder="Nhập tên" formControlName="parentName">
-                                @if (contactForm.get('parentName')?.hasError('required') &&
-                                contactForm.get('parentName')?.touched) {
-                                <div class="error-message">Vui lòng nhập họ tên phụ huynh</div>
-                                }
-                            </div>
-        
-                            <div class="form-group">
-                                <label class="form-label">Số điện thoại</label>
-                                <input type="tel" class="form-input" placeholder="Nhập số điện thoại"
-                                    formControlName="phoneNumber" maxlength="10">
-                                @if (contactForm.get('phoneNumber')?.hasError('required') &&
-                                contactForm.get('phoneNumber')?.touched) {
-                                <div class="error-message">Vui lòng nhập số điện thoại</div>
-                                }
-                                @if (contactForm.get('phoneNumber')?.hasError('pattern') &&
-                                contactForm.get('phoneNumber')?.touched) {
-                                <div class="error-message">Số điện thoại phải là 10 chữ số</div>
-                                }
-                            </div>
-        
-                            <div class="form-group">
-                                <label class="form-label">Độ tuổi của bé</label>
-                                <input type="number" class="form-input" placeholder="Nhập độ tuổi" formControlName="childAge"
-                                    min="0">
-                                @if (contactForm.get('childAge')?.hasError('required') && contactForm.get('childAge')?.touched)
-                                {
-                                <div class="error-message">Vui lòng nhập độ tuổi của bé</div>
-                                }
-                                @if (contactForm.get('childAge')?.hasError('pattern') && contactForm.get('childAge')?.touched) {
-                                <div class="error-message">Độ tuổi phải là số nguyên</div>
-                                }
-                            </div>
-        
-                            <div class="form-group pt-4">
-                                <label class="form-label">Nhu cầu của bé và gia đình</label>
-                                <div class="flex flex-column gap-3">
-                                    <label class="radio-label">
-                                        <input type="radio" value="Làm quen với tiếng Anh" formControlName="childNeeds">
-                                        <span>Làm quen với tiếng Anh</span>
-                                    </label>
-                                    <label class="radio-label">
-                                        <input type="radio" value="Muốn con có góc tiếng Anh vững" formControlName="childNeeds">
-                                        <span>Muốn con có góc tiếng Anh vững</span>
-                                    </label>
-                                    <label class="radio-label">
-                                        <input type="radio" value="Muốn con giao tiếp tự tin hơn" formControlName="childNeeds">
-                                        <span>Muốn con giao tiếp tự tin hơn</span>
-                                    </label>
-                                </div>
-                                @if (contactForm.get('childNeeds')?.hasError('required') &&
-                                contactForm.get('childNeeds')?.touched) {
-                                <div class="error-message">Vui lòng chọn nhu cầu của bé và gia đình</div>
-                                }
-                            </div>
-                        </form>
-                        <div class="flex justify-content-center pt-5 relative">
-                            <button class="btn-submit" [ngClass]="this.contactForm.valid ? 'bg-orange-500' : 'bg-gray-200'"
-                                (click)="submitContactForm()">
-                                Nhận tư vấn cho bé
-                            </button>
-                        </div>
-                    </div>
-                    <!-- Right side - Commitment & Info -->
-                    <div class="flex flex-column gap-4">
-                        <div class="box-card">
-                            <div class="commitment-box">
-                                <div class="commitment-title">Cam kết</div>
-                                <div class="flex flex-column gap-2">
-                                    <div class="commitment-item">
-                                        <i class="pi pi-check-circle"></i>
-                                        <span>Không spam cuộc gọi</span>
-                                    </div>
-                                    <div class="commitment-item">
-                                        <i class="pi pi-check-circle"></i>
-                                        <span>Chỉ tư vấn là tính khi phụ huynh đồng ý</span>
-                                    </div>
-                                    <div class="commitment-item">
-                                        <i class="pi pi-check-circle"></i>
-                                        <span>Bảo mật thông tin tuyệt đối</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-card pb-2">
-                            <div class="flex flex-column gap-4">
-                                <div class="info-title">Đen Đen luôn đồng hành cùng gia đình bạn</div>
-                                <div class="info-subtitle">
-                                    Đen Đen luôn ở bên cạnh bé lúng khoảnh khắc học và chơi
-                                </div>
-                            </div>
-                            <div class="flex justify-content-center">
-                                <img src="/images/contact/study.png" alt="Support" class="support-image">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="fourth-section">
-            <div class="contact-content">
-                <div class="support-title">Chúng tôi sẽ tư vấn</div>
-                <div class="support-grid">
-                    <div class="support-item">
-                        <img src="/images/contact/support_1.png" alt="Support" class="image">
-                        <div class="text">Phù hợp độ tuổi</div>
-                    </div>
-                    <div class="support-item">
-                        <img src="/images/contact/support_2.png" alt="Support" class="image">
-                        <div class="text">Bắt đầu từ đâu</div>
-                    </div>
-                    <div class="support-item">
-                        <img src="/images/contact/support_3.png" alt="Support" class="image">
-                        <div class="text">Cách học phù hợp</div>
-                    </div>
-                    <div class="support-item">
-                        <img src="/images/contact/support_4.png" alt="Support" class="image">
-                        <div class="text">Quản lý lộ trình</div>
-                    </div>
-                </div>
+<div class="page-container">
+    <!-- ═══════════════ HERO BANNER ═══════════════ -->
+    <section class="hero-section" aria-label="Ảnh bìa liên hệ">
+        @if (banner()?.imageUrlCallback) {
+        <img [src]="banner()?.imageUrlCallback" alt="" class="image-section">
+        } @else {
+        <div class="hero-placeholder">
+            <div class="hero-overlay">
+                <h1 class="hero-title">LIÊN HỆ</h1>
+                <p class="hero-subtitle">Chúng tôi luôn sẵn sàng lắng nghe bạn</p>
             </div>
         </div>
         }
+    </section>
+
+    <!-- ═══════════════ CONTACT SECTION ═══════════════ -->
+    <div class="page-container">
+        <div class="page-content">
+            <div class="contact-layout">
+                <!-- ── Left: Info Card ── -->
+                <div class="info-card">
+                    <h2 class="info-title">THÔNG TIN LIÊN HỆ</h2>
+
+                    <!-- Google Maps embed -->
+                    <div class="map-wrapper">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.6615892850564!2d106.62499757480573!3d10.748108160218874!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f71f3b1c2bb%3A0x8b765d7c6c0e0b0f!2zWMO0bSA5LCBUaMO0biBQaMaw4budbmcgQ8OhY2ggMywgWMOjIFF14buRYyBPYWksIEjDoCBO4buZaQ!5e0!3m2!1svi!2s!4v1709123456789!5m2!1svi!2s"
+                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                            title="Bản đồ ANT"></iframe>
+                    </div>
+
+                    <!-- Contact details -->
+                    <ul class="contact-details">
+                        <li>
+                            <i class="pi pi-map-marker"></i>
+                            <span>Địa chỉ: Xóm 7, thôn Phương Nhị, xã Dân Hòa, Hà Nội</span>
+                        </li>
+                        <li>
+                            <i class="pi pi-phone"></i>
+                            <span>Số điện thoại: 092 636 059</span>
+                        </li>
+                        <li>
+                            <i class="pi pi-envelope"></i>
+                            <span>Email: (Đang cập nhật)</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- ── Right: Contact Form ── -->
+                <div class="form-section">
+                    @if (success()) {
+                    <div class="success-message">
+                        <i class="pi pi-check-circle"></i>
+                        <p>Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi trong thời gian sớm nhất.</p>
+                    </div>
+                    }
+
+                    <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+
+                        <!-- Row 1: Họ + Tên -->
+                        <div class="form-row">
+                            <div class="form-field" [class.error]="isInvalid('firstName')">
+                                <label for="firstName">Họ</label>
+                                <input id="firstName" type="text" formControlName="firstName" placeholder="Họ">
+                                @if (isInvalid('firstName')) {
+                                <span class="err-msg">Vui lòng nhập họ</span>
+                                }
+                            </div>
+                            <div class="form-field" [class.error]="isInvalid('lastName')">
+                                <label for="lastName">Tên</label>
+                                <input id="lastName" type="text" formControlName="lastName" placeholder="Tên">
+                                @if (isInvalid('lastName')) {
+                                <span class="err-msg">Vui lòng nhập tên</span>
+                                }
+                            </div>
+                        </div>
+
+                        <!-- Row 2: Email + SĐT -->
+                        <div class="form-row">
+                            <div class="form-field" [class.error]="isInvalid('email')">
+                                <label for="email">Email</label>
+                                <input id="email" type="email" formControlName="email" placeholder="Email">
+                                @if (isInvalid('email')) {
+                                <span class="err-msg">Email không hợp lệ</span>
+                                }
+                            </div>
+                            <div class="form-field" [class.error]="isInvalid('phone')">
+                                <label for="phone">Số điện thoại liên lạc</label>
+                                <input id="phone" type="tel" formControlName="phone"
+                                    placeholder="Số điện thoại liên lạc">
+                                @if (isInvalid('phone')) {
+                                <span class="err-msg">Số điện thoại không hợp lệ</span>
+                                }
+                            </div>
+                        </div>
+
+                        <!-- Row 3: Lời nhắn -->
+                        <div class="form-field full-width" [class.error]="isInvalid('message')">
+                            <label for="message">Lời nhắn</label>
+                            <textarea id="message" formControlName="message" placeholder="Lời nhắn" rows="4"></textarea>
+                            @if (isInvalid('message')) {
+                            <span class="err-msg">Vui lòng nhập lời nhắn</span>
+                            }
+                        </div>
+
+                        <button type="submit" class="btn-submit">Gửi ngay</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-    }
 </div>

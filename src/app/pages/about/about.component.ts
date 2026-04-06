@@ -6,36 +6,67 @@ import { CommonModule } from '@angular/common';
     standalone: true,
     imports: [CommonModule],
     templateUrl: './about.component.html',
-    styleUrl: './about.component.scss'
+    styleUrl: './about.component.scss',
 })
 export class AboutComponent {
-    values = [
+    features = [
         {
-            icon: 'pi-lightbulb',
-            title: 'Đổi mới sáng tạo',
-            description: 'Không ngừng nghiên cứu và phát triển công nghệ mới để mang đến giải pháp tốt nhất'
+            icon: 'pi-database',
+            title: 'Số hóa quỹ căn tập trung',
+            description:
+                'Quản lý toàn bộ danh mục sản phẩm một cách khoa học, giúp sale tra cứu thông tin nhanh chóng, chính xác.',
         },
         {
-            icon: 'pi-users',
-            title: 'Khách hàng là trung tâm',
-            description: 'Lắng nghe và thấu hiểu nhu cầu để tạo ra sản phẩm phù hợp nhất'
+            icon: 'pi-globe',
+            title: 'Web-page cá nhân hóa',
+            description:
+                'Mỗi nhân viên sale sở hữu đường link web riêng cho từng quỹ căn, hiển thị đầy đủ thông tin dự án và liên hệ cá nhân (Hotline, Zalo).',
+        },
+        {
+            icon: 'pi-calendar',
+            title: 'Hệ thống đặt lịch thông minh',
+            description:
+                'Khách hàng chủ động hẹn lịch xem nhà ngay trên trang web. Lịch hẹn được chuyển thẳng đến sale phụ trách, đảm bảo công bằng và chính xác.',
+        },
+        {
+            icon: 'pi-chart-bar',
+            title: 'Quản trị đội nhóm',
+            description:
+                'Trưởng nhóm có cái nhìn tổng thể về hiệu suất từng thành viên, theo dõi lượng tương tác và tỷ lệ chuyển đổi lịch hẹn thực tế.',
+        },
+    ];
+
+    reasons = [
+        {
+            icon: 'pi-star',
+            title: 'Chuyên nghiệp hóa hình ảnh',
+            description:
+                'Thay vì gửi những tệp tin rời rạc, sale gửi cho khách một website chuyên nghiệp mang đậm dấu ấn cá nhân.',
         },
         {
             icon: 'pi-shield',
-            title: 'Tin cậy & Bảo mật',
-            description: 'Cam kết bảo vệ thông tin và quyền riêng tư của khách hàng tuyệt đối'
+            title: 'Công bằng & Minh bạch',
+            description:
+                'Hệ thống tự động phân loại khách hàng dựa trên link cá nhân, loại bỏ hoàn toàn việc chồng chéo khách giữa các thành viên.',
         },
         {
-            icon: 'pi-heart',
-            title: 'Chất lượng dịch vụ',
-            description: 'Đảm bảo sản phẩm và dịch vụ đạt tiêu chuẩn cao nhất'
-        }
+            icon: 'pi-wallet',
+            title: 'Tối ưu chi phí',
+            description:
+                'Chỉ 49.000đ/tháng/người — giải pháp phù hợp nhất cho các đội nhóm nhỏ từ 5 - 20 người.',
+        },
+        {
+            icon: 'pi-thumbs-up',
+            title: 'Đơn giản & Dễ dùng',
+            description:
+                'Giao diện tinh gọn, không cần am hiểu kỹ thuật vẫn có thể sử dụng thành thạo sau 5 phút.',
+        },
     ];
 
     stats = [
-        { number: '10,000+', label: 'Khách hàng' },
-        { number: '50,000+', label: 'Thiết bị bán ra' },
-        { number: '99.9%', label: 'Thời gian hoạt động' },
-        { number: '24/7', label: 'Hỗ trợ' }
+        { number: '49K', label: 'VNĐ/tháng/người' },
+        { number: '5 phút', label: 'Làm quen hệ thống' },
+        { number: '24/7', label: 'Hỗ trợ kỹ thuật' },
+        { number: '100%', label: 'Minh bạch dữ liệu' },
     ];
 }

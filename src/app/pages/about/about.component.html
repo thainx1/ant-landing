@@ -1,36 +1,54 @@
 <div class="about-container">
-    <section class="mission-section">
+    <section class="hero-section">
         <div class="content-wrapper">
-            <div class="mission-content">
-                <h2 class="section-title">Sứ mệnh của chúng tôi</h2>
-                <p class="mission-text">
-                    Công ty TNHH Datrec Việt Nam là một doanh nghiệp hoạt động trong lĩnh vực thương mại điện tử, chuyên cung cấp các sản phẩm thiết yếu đến người tiêu dùng Việt Nam. Ngay từ những bước khởi đầu, công ty đã xây dựng nền tảng vững chắc cho định hướng phát triển bền vững, lấy chất lượng sản phẩm và giá trị phục vụ khách hàng làm trọng tâm.
-                </p>
-            </div>
+            <h1 class="hero-title">🏠 Chúng tôi là ai?</h1>
+            <p class="hero-text">
+                ANT là nền tảng quản lý và hỗ trợ kinh doanh bất động sản chuyên sâu, được thiết kế để giải quyết
+                bài toán cốt lõi của các đội nhóm sale: <strong>Làm sao để tiếp cận khách hàng chuyên nghiệp và chốt
+                lịch hẹn hiệu quả nhất.</strong>
+            </p>
+            <p class="hero-text">
+                Chúng tôi không chỉ cung cấp một công cụ quản lý, mà mang đến một hệ sinh thái giúp từng thành viên
+                trong team trở thành một <strong>"đại lý số"</strong> độc lập và mạnh mẽ.
+            </p>
+        </div>
+    </section>
 
-            <div class="vision-content">
-                <h2 class="section-title">Tầm nhìn</h2>
-                <p class="vision-text">
-                    Datrec từng bước chuyển mình sang lĩnh vực công nghệ, tập trung vào nghiên cứu, phát triển và phân phối các sản phẩm ứng dụng công nghệ trong đời sống. Doanh nghiệp xây dựng hệ thống kinh doanh đa kênh, kết hợp giữa bán buôn, bán lẻ trên các nền tảng thương mại điện tử và hệ thống cửa hàng trực tiếp, nhằm đưa các giải pháp công nghệ đến gần hơn với người tiêu dùng.
-                    <br/>
-                    Với triết lý <strong>“kinh doanh không phải là bán sản phẩm, mà là mang đến giải pháp cho khách hàng”</strong>, Datrec không ngừng đầu tư vào nghiên cứu và đổi mới sáng tạo. 
-                </p>
+    <section class="product-section">
+        <div class="content-wrapper">
+            <h2 class="section-title">🚀 Sản phẩm cốt lõi: Hệ thống quản lý & Cá nhân hóa bán hàng</h2>
+            <p class="section-intro">
+                ANT tập trung vào việc tối ưu hóa trải nghiệm của cả môi giới và khách hàng thông qua các tính năng
+                đột phá:
+            </p>
+            <div class="features-grid">
+                @for (feature of features; track feature.title) {
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="pi" [ngClass]="feature.icon"></i>
+                        </div>
+                        <h3 class="feature-title">{{ feature.title }}</h3>
+                        <p class="feature-description">{{ feature.description }}</p>
+                    </div>
+                }
             </div>
         </div>
     </section>
 
-    <section class="values-section">
-        <h2 class="section-title">Giá trị cốt lõi</h2>
-        <div class="values-grid">
-            @for (value of values; track value.title) {
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="pi" [ngClass]="value.icon"></i>
+    <section class="why-section">
+        <div class="content-wrapper">
+            <h2 class="section-title">🎯 Tại sao các Team Sale nên chọn ANT?</h2>
+            <div class="reasons-grid">
+                @for (reason of reasons; track reason.title) {
+                    <div class="reason-card">
+                        <div class="reason-icon">
+                            <i class="pi" [ngClass]="reason.icon"></i>
+                        </div>
+                        <h3 class="reason-title">{{ reason.title }}</h3>
+                        <p class="reason-description">{{ reason.description }}</p>
                     </div>
-                    <h3 class="value-title">{{ value.title }}</h3>
-                    <p class="value-description">{{ value.description }}</p>
-                </div>
-            }
+                }
+            </div>
         </div>
     </section>
 
@@ -47,6 +65,7 @@
 
     <section class="cta-section">
         <div class="cta-content">
+            <p class="cta-text">Sẵn sàng nâng tầm đội nhóm sale của bạn?</p>
             <button class="cta-button">Liên hệ ngay</button>
         </div>
     </section>

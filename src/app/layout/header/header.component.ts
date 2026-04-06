@@ -31,24 +31,29 @@ export class HeaderComponent {
 
     menuItems = [
         { 
+            label: 'Giải pháp sale BĐS', 
+            route: '/home',
+            icon: '',
+            path: 'images/icons/menu_2.svg'
+        },
+        { 
             label: 'Về chúng tôi', 
             route: '/',
             icon: '',
             path: 'images/icons/menu_1.svg'
         },
         { 
-            label: 'Về Đen Đen', 
+            label: 'Tin tức', 
             route: '/home',
             icon: '',
             path: 'images/icons/menu_2.svg'
         },
-        // // { label: 'Tin tức', route: '/news' },
-        // { 
-        //     label: 'Liên hệ', 
-        //     route: '/contact',
-        //     icon: '',
-        //     path: 'images/icons/menu_3.svg'
-        // },
+        { 
+            label: 'Liên hệ', 
+            route: '/contact',
+            icon: '',
+            path: 'images/icons/menu_3.svg'
+        },
     ];
 
     @HostListener('window:scroll', [])

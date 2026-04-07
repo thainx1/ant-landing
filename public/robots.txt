@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ant.htezlife.com/sitemap.xml

@@ -42,7 +42,7 @@
     border: none;
     font-size: 24px;
     cursor: pointer;
-    color: var(--primary-color);
+    color: #fff;
     padding: 8px;
     transition: color 0.3s ease;
 
@@ -63,16 +63,12 @@
     justify-content: start;
     gap: 10px;
 
-    img:first-child {
+    img {
         width: 60px;
         height: 60px;
         border-radius: 50%;
         object-fit: contain;
         background-color: #fff;
-    }
-
-    img:not(:first-child) {
-        height: 30px;
     }
 
     h1 {
@@ -98,6 +94,12 @@
         h1 {
             font-size: 20px;
             height: 20px;
+        }
+
+        img {
+            width: 45px;
+            height: 45px;
+            transform: translateX(-15px);
         }
     }
 }

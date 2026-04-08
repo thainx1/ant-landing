@@ -71,30 +71,10 @@
         background-color: #fff;
     }
 
-    h1 {
-        font-size: 24px;
-        font-weight: 700;
-        margin: 0;
-        height: 24px;
-
-        &:first-of-type {
-            color: var(--primary-color);
-        }
-
-        &:last-of-type {
-            color: var(--secondary-color);
-        }
-    }
-
     @media (max-width: 768px) {
         flex-shrink: 1;
         flex-grow: 1;
         justify-content: center;
-
-        h1 {
-            font-size: 20px;
-            height: 20px;
-        }
 
         img {
             width: 45px;

@@ -16,14 +16,12 @@ import { GET_BANNERS } from '../core/constants/gqlqueries/banner.query';
 export class LayoutComponent implements OnInit {
     injector = inject(Injector);
     
-    // Shared signal that all child components can access
     sharedData = signal<any>({
         banners: [],
         user: null,
         settings: {}
     });
 
-    // Method to update shared data
     updateSharedData(data: Partial<any>) {
         this.sharedData.update(current => ({ ...current, ...data }));
     }
